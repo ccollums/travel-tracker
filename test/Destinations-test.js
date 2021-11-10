@@ -59,7 +59,7 @@ describe('Destinations', () => {
   })
 
   it('should return an array of the names of destinations in alphabitical order', function() {
-    expect(destination.retrieveDestinationNames().to.deep.equal(['Cancun, Mexico', 'Lima, Peru', 'London, England']))
+    expect(destination.retrieveDestinationNames()).to.deep.equal(['Cancun, Mexico', 'Lima, Peru', 'London, England'])
   })
 
 });
