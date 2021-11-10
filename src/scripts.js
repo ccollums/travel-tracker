@@ -22,6 +22,8 @@ const createInitialDashboard = (data) => {
   trips = new Trips(data[1].trips);
   destinations = new Destinations(data[2].destinations);
   user = new User(data[3])
+  user.trips = trips.retrieveTripsForUser(user.id)
+  console.log(user.trips)
 }
 
 // const randomUserId = (data) => {
@@ -29,7 +31,7 @@ const createInitialDashboard = (data) => {
 // }
 
 const onPageLoad = () => {
-  return retrieveData(1);
+  return retrieveData(50);
 }
 
 
