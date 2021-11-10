@@ -8,7 +8,12 @@ class Destinations {
         return destination.id === id;
       });
     }
+    retrieveDestinationNames() {
+
+    }
+
   }
+
 
 
 

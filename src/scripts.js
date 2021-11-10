@@ -26,12 +26,8 @@ const createInitialDashboard = (data) => {
   console.log(user.trips)
 }
 
-// const randomUserId = (data) => {
-//   return Math.floor(Math.random() * data[0].travelers.length);
-// }
-
 const onPageLoad = () => {
-  return retrieveData(50);
+  return retrieveData(Math.floor(Math.random() * 50));
 }
 
 
