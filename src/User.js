@@ -10,7 +10,6 @@ class User {
   returnFirstName () {
     return this.name.split(' ')[0];
   }
-
 }
 
 // {

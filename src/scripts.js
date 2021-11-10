@@ -13,23 +13,24 @@ let destinations;
 
 const retrieveData = (id) => {
   const allPromise = Promise.all([getData('travelers'), getData('trips'), getData('destinations'), getData(`travelers/${id}`)])
-    .then(data => {createInitialDashboard(data), randomUserId(data)})
+    .then(data => {createInitialDashboard(data)})
 }
 
 const createInitialDashboard = (data) => {
+  console.log(data)
   travelers = new Travelers(data[0].travelers);
   trips = new Trips(data[1].trips);
   destinations = new Destinations(data[2].destinations);
   user = new User(data[3])
 }
 
-const randomUserId = (data) => {
-  console.log(data)
-  return Math.floor(Math.random() * data[0].travelers.length);
-}
+// const randomUserId = (data) => {
+//   return Math.floor(Math.random() * data[0].travelers.length);
+// }
 
 const onPageLoad = () => {
-  retrieveData(1);
+  return retrieveData(1);
 }
+
 
 window.addEventListener('load', onPageLoad);

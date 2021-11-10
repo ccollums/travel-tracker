@@ -8,6 +8,10 @@ class Travelers {
         return user.id === id;
       });
     }
+
+    retrieveRandomUser() {
+      return Math.floor(Math.random() * this.data.length);
+    }
   }
 
 
