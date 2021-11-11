@@ -40,7 +40,7 @@ img {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 15vh;
+  height: 12vh;
   padding: 1%;
 }
 
@@ -49,7 +49,7 @@ img {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 55vh;
+  height: 60vh;
   background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBiZWFjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,16 +126,19 @@ img {
   border-radius: 3%;
 }
 
-.label-input-boxes {
+.label-input-boxes,
+.dashboard-image {
   font-size: 150%;
   width: 100vw;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .dashboard-image {
-  display: flex;
-  justify-content: flex-start;
+  font-size: 300%;
+  opacity: 30%;
+  color: #8C402E;
 }
 
 .money-spent-this-year {
