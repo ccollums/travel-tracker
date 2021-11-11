@@ -19,8 +19,8 @@ class User {
       destinations.forEach((destination) => {
         if (trip.destinationID === destination.id && dayjs().isAfter(dayjs(trip.date)) &&
         dayjs(trip.date).isAfter(dayjs().subtract(1, 'year')) && trip.status === 'approved') {
-          total += ((trip.duration * destination.estimatedLodgingCostPerDay) +
-          destination.estimatedFlightCostPerPerson) * trip.travelers
+          total += (((trip.duration * destination.estimatedLodgingCostPerDay) +
+          destination.estimatedFlightCostPerPerson) * trip.travelers) * 1.1
         }
       })
       return total

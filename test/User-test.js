@@ -184,7 +184,7 @@ describe('User', () => {
   });
 
   it('should retrieve total amount spent on trips this year', function() {
-    expect(user.retrieveTotalSpentOnTripsThisYear(user.destinations)).to.equal(5646);
+    expect(user.retrieveTotalSpentOnTripsThisYear(user.destinations)).to.equal(6210.60);
   });
 
   it('should retrieve the current trip the user is on', function() {

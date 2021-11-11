@@ -14,8 +14,8 @@ class Trips {
   retrieveTripCost(destinations, trip) {
     return destinations.reduce((sum, destination) => {
       if (trip.destinationID === destination.id) {
-        sum += ((trip.duration * destination.estimatedLodgingCostPerDay) +
-          destination.estimatedFlightCostPerPerson) * trip.travelers
+        sum += (((trip.duration * destination.estimatedLodgingCostPerDay) +
+          destination.estimatedFlightCostPerPerson) * trip.travelers) * 1.1
       }
       return sum;
     }, 0)
