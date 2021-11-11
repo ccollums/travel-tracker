@@ -40,6 +40,26 @@ describe('User', () => {
           status: "approved",
           suggestedActivities: []
         },
+        {
+          id: 4,
+          userID: 1,
+          destinationID: 25,
+          travelers: 1,
+          date: "2020/07/16",
+          duration: 4,
+          status: "approved",
+          suggestedActivities: []
+        },
+        {
+          id: 5,
+          userID: 1,
+          destinationID: 12,
+          travelers: 1,
+          date: "2021/11/10",
+          duration: 6,
+          status: "approved",
+          suggestedActivities: []
+        },
       ],
       destinations: [{
           id: 2,
@@ -64,7 +84,23 @@ describe('User', () => {
           estimatedFlightCostPerPerson: 400,
           image: 'imageURL3',
           alt: "alt text 3"
-        }
+        },
+        {
+          id: 12,
+          destination: 'St. Petersburg, Russia',
+          estimatedLodgingCostPerDay: 100,
+          estimatedFlightCostPerPerson: 1100,
+          image: 'imageURL4',
+          alt: 'alt text 4'
+          },
+          {
+          id: 25,
+          destination: 'Marrakesh, Morocco',
+          estimatedLodgingCostPerDay: 70,
+          estimatedFlightCostPerPerson: 830,
+          image: 'imageURL5',
+          alt: 'alt text 5'
+          },
       ]
     })
   })
@@ -92,4 +128,23 @@ describe('User', () => {
   it('should return first name of user', function() {
     expect(user.returnFirstName()).to.equal('Carly');
   });
+
+  // it('should retrieve total amount spent on trips this year', function() {
+  //   expect(user.retrieveTotalSpentOnTripsThisYear('2020/11/10')).to.equal(2800);
+  // });
+
+  it('should retrieve the current trip the user is on', function() {
+    expect(user.retrieveCurrentTrips()).to.equal({
+      id: 5,
+      userID: 1,
+      destinationID: 12,
+      travelers: 1,
+      date: "2020/11/10",
+      duration: 6,
+      status: "approved",
+      suggestedActivities: []
+    });
+  });
+
+
 });

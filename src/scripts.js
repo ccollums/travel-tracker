@@ -23,6 +23,8 @@ const createInitialDashboard = (data) => {
   destinations = new Destinations(data[2].destinations);
   user = new User(data[3])
   user.trips = trips.retrieveTripsForUser(user.id)
+  user.destinations = destinations.retrieveDestinationNames()
+  console.log(user.trips)
   console.log(user.destinations)
 }
 

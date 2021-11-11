@@ -9,7 +9,7 @@ class Destinations {
       });
     }
 
-  retrieveDestinationNames() {
+  retrieveDestinationNames(id) {
     const result = this.data.map((location) => {
       return location.destination
     }).sort((a, b) => {

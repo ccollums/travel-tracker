@@ -1,3 +1,5 @@
+const Destinations = require('../src/Trips.js');
+
 class Trips {
   constructor(tripsData) {
     this.data = tripsData;
@@ -8,6 +10,16 @@ class Trips {
       return user.userID === id;
     });
   }
+
+  // retrieveTripDestinationsForUser(id) {
+  //   const destinations = new Destinations()
+  //   const tripDestinationIds = this.retrieveTripsForUser(id).map((trip) => {
+  //     return trip.destinationID;
+  //   })
+  //   console.log(destinations)
+  //   console.log(tripDestinationIds)
+  //   // const tripDestinationNames = destinations.filter(())
+  // }
 }
 
 
