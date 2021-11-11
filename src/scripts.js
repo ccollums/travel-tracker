@@ -1,6 +1,7 @@
 import {getData, addData} from './api'
 import './css/base.scss';
-import './images/turing-logo.png'
+import './images/beach.jpg'
+import './images/travel-icon.svg'
 import Travelers from './Travelers';
 import User from './User';
 import Trips from './Trips';
