@@ -26,6 +26,11 @@ To verify that it is setup correctly, run `npm start` in your terminal. Go to `h
 
 ## Where to Add Your Code
 
+##Artists 
+
+-Landscape shot of lit up walkway to a beach at a sunset by wbulls from NounProject.com
+-Travel by Vectplus from the Noun Project
+
 ### JavaScript
 
 You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
