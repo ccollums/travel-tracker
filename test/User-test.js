@@ -37,7 +37,7 @@ describe('User', () => {
           travelers: 1,
           date: "2021/07/16",
           duration: 3,
-          status: "approved",
+          status: "pending",
           suggestedActivities: []
         },
         {
@@ -54,9 +54,39 @@ describe('User', () => {
           id: 5,
           userID: 1,
           destinationID: 12,
-          travelers: 1,
+          travelers: 3,
           date: "2021/11/10",
           duration: 6,
+          status: "approved",
+          suggestedActivities: []
+        },
+        {
+          id: 6,
+          userID: 1,
+          destinationID: 45,
+          travelers: 1,
+          date: "2021/11/11",
+          duration: 6,
+          status: "pending",
+          suggestedActivities: []
+        },
+        {
+          id: 7,
+          userID: 1,
+          destinationID: 50,
+          travelers: 2,
+          date: "2021/11/11",
+          duration: 6,
+          status: "pending",
+          suggestedActivities: []
+        },
+        {
+          id: 8,
+          userID: 1,
+          destinationID: 34,
+          travelers: 2,
+          date: "2021/04/10",
+          duration: 7,
           status: "approved",
           suggestedActivities: []
         },
@@ -101,6 +131,30 @@ describe('User', () => {
           image: 'imageURL5',
           alt: 'alt text 5'
           },
+          {
+          id: 45,
+          destination: 'Laramie, Wyoming',
+          estimatedLodgingCostPerDay: 80,
+          estimatedFlightCostPerPerson: 700,
+          image: 'imageURL6',
+          alt: 'alt text 6'
+          },
+          {
+          id: 50,
+          destination: 'Denver, Colorado',
+          estimatedLodgingCostPerDay: 90,
+          estimatedFlightCostPerPerson: 1000,
+          image: 'imageURL6',
+          alt: 'alt text 6'
+          },
+          {
+          id: 34,
+          destination: 'Aspen, Colorado',
+          estimatedLodgingCostPerDay: 24,
+          estimatedFlightCostPerPerson: 105,
+          image: 'imageURL7',
+          alt: 'alt text 7'
+          },
       ]
     })
   })
@@ -129,21 +183,160 @@ describe('User', () => {
     expect(user.returnFirstName()).to.equal('Carly');
   });
 
-  // it('should retrieve total amount spent on trips this year', function() {
-  //   expect(user.retrieveTotalSpentOnTripsThisYear('2020/11/10')).to.equal(2800);
-  // });
+  it('should retrieve total amount spent on trips this year', function() {
+    expect(user.retrieveTotalSpentOnTripsThisYear(user.destinations)).to.equal(6210.60);
+  });
 
   it('should retrieve the current trip the user is on', function() {
-    expect(user.retrieveCurrentTrips()).to.equal({
+    expect(user.retrieveCurrentTrips()).to.deep.equal({
       id: 5,
       userID: 1,
       destinationID: 12,
-      travelers: 1,
-      date: "2020/11/10",
+      travelers: 3,
+      date: "2021/11/10",
       duration: 6,
       status: "approved",
       suggestedActivities: []
     });
+  });
+
+  it('should only retrieve approved trips when searching for current trip', function() {
+    expect(user.retrieveCurrentTrips()).to.deep.equal({
+      id: 5,
+      userID: 1,
+      destinationID: 12,
+      travelers: 3,
+      date: "2021/11/10",
+      duration: 6,
+      status: "approved",
+      suggestedActivities: []
+    });
+  });
+
+  it('should retrieve the users past trips', function() {
+    expect(user.retrievePastTrips()).to.deep.equal([
+    {
+      id: 4,
+      userID: 1,
+      destinationID: 25,
+      travelers: 1,
+      date: "2020/07/16",
+      duration: 4,
+      status: "approved",
+      suggestedActivities: []
+    },
+    {
+      id: 8,
+      userID: 1,
+      destinationID: 34,
+      travelers: 2,
+      date: "2021/04/10",
+      duration: 7,
+      status: "approved",
+      suggestedActivities: []
+    }]);
+  });
+  it('should only retrieve approved trips when searching for past trips', function() {
+    expect(user.retrievePastTrips()).to.deep.equal([
+    {
+      id: 4,
+      userID: 1,
+      destinationID: 25,
+      travelers: 1,
+      date: "2020/07/16",
+      duration: 4,
+      status: "approved",
+      suggestedActivities: []
+    },
+    {
+      id: 8,
+      userID: 1,
+      destinationID: 34,
+      travelers: 2,
+      date: "2021/04/10",
+      duration: 7,
+      status: "approved",
+      suggestedActivities: []
+    }]);
+  });
+
+  it('should retrieve the users future trips', function() {
+    expect(user.retrieveFutureTrips()).to.deep.equal([{
+        id: 1,
+        userID: 1,
+        destinationID: 2,
+        travelers: 1,
+        date: "2022/09/16",
+        duration: 8,
+        status: "approved",
+        suggestedActivities: []
+      },
+      {
+        id: 2,
+        userID: 1,
+        destinationID: 1,
+        travelers: 1,
+        date: "2022/09/20",
+        duration: 10,
+        status: "approved",
+        suggestedActivities: []
+      }]);
+  });
+
+  it('should only retrieve approved trips when searching for future trips', function() {
+    expect(user.retrieveFutureTrips()).to.deep.equal([{
+        id: 1,
+        userID: 1,
+        destinationID: 2,
+        travelers: 1,
+        date: "2022/09/16",
+        duration: 8,
+        status: "approved",
+        suggestedActivities: []
+      },
+      {
+        id: 2,
+        userID: 1,
+        destinationID: 1,
+        travelers: 1,
+        date: "2022/09/20",
+        duration: 10,
+        status: "approved",
+        suggestedActivities: []
+      }]);
+  });
+
+  it('should retrieve the users pending trips', function() {
+    expect(user.retrievePendingTrips()).to.deep.equal([{
+      id: 3,
+      userID: 1,
+      destinationID: 49,
+      travelers: 1,
+      date: "2021/07/16",
+      duration: 3,
+      status: "pending",
+      suggestedActivities: []
+    },
+    {
+      id: 6,
+      userID: 1,
+      destinationID: 45,
+      travelers: 1,
+      date: "2021/11/11",
+      duration: 6,
+      status: "pending",
+      suggestedActivities: []
+    },
+    {
+      id: 7,
+      userID: 1,
+      destinationID: 50,
+      travelers: 2,
+      date: "2021/11/11",
+      duration: 6,
+      status: "pending",
+      suggestedActivities: []
+    }]);
   });
 
 

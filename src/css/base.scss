@@ -13,12 +13,12 @@ body {
 h1 {
   font-size: 200%;
   font-weight: 500;
-  margin: 1%;
+  @include onePercentMargin;
 }
 
 h2 {
-  margin: 1%;
-  color: darkgrey;
+  @include onePercentMargin;
+  color: $dark-grey;
 }
 
 h3 {
@@ -27,67 +27,53 @@ h3 {
 
 img {
   height: 17vh;
-  margin: 1%;
+  @include onePercentMargin;
 }
 
 .main-dashboard {
-  display: flex;
-  flex-direction: column;
+  @include flexBox(column);
 }
 
 .nav-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  @include flexBox(row, space-between, center);
   height: 12vh;
   padding: 1%;
 }
 
 .middle-image {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  @include flexBox(column, flex-end, center);
   height: 60vh;
-  background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBiZWFjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include backgroundImages("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBiZWFjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
 }
 
 .trips {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @include flexBox(row, space-between)
 }
 
 .upcoming-trips,
 .pending-trips,
 .past-trips {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 3%;
+  @include flexBox(column, none, center);
+  @include standardBorderRadius;
   width: 40vw;
   min-height: 40vh;
   margin: 1.5%;
+  // overflow: auto;
 }
 
 .upcoming-trips {
-  background-color: #037F8C;
+  background-color: $dark-teal;
 }
 
 .pending-trips {
-  background-color: #B0D9D9;
+  background-color: $light-teal;
 }
 .past-trips {
-  background-color: #03A6A6;
+  background-color: $middle-teal;
 }
 
 .new-trip-inputs {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  @include flexBox(row, center);
 }
 
 .date-input,
@@ -96,10 +82,10 @@ img {
 .destination-drop-down {
   height: 5vh;
   width: 20vw;
-  margin: 1%;
+  @include onePercentMargin;
   padding: 1%;
   font-size: 120%;
-  border-radius: 3%;
+  @include standardBorderRadius;
   border: none;
   cursor: pointer;
 }
@@ -109,42 +95,35 @@ img {
 }
 
 .submit-button-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexBox(column, none, center)
 }
 
 .submit-button {
   height: 5vh;
   width: 20vw;
   margin: 2%;
-  border: none;
-  cursor: pointer;
-  background-color: #F2A88D;
+  @include buttons;
+  background-color: $peach;
   font-size: 120%;
   font-weight: 500;
-  border-radius: 3%;
+  @include standardBorderRadius;
 }
 
 .label-input-boxes,
 .dashboard-image {
   font-size: 150%;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexBox(none, center, center)
 }
 
 .dashboard-image {
   font-size: 300%;
   opacity: 30%;
-  color: #8C402E;
+  color: $dark-tan;
 }
 
 .money-spent-this-year {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexBox(none, center, center)
 }
 
 .total-spent {
@@ -158,17 +137,13 @@ img {
 }
 
 .trip {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  border-radius: 3%;
+  @include flexBox(none, space-between, center);
+  background-color: $primary-background;
+  @include standardBorderRadius;
   min-height: 15vh;
   width: 28vw;
   margin: 4%;
 }
-
-
 
 // login page styling below
 
@@ -179,18 +154,14 @@ img {
 }
 
 .login-photo-left-side {
-  background-image: url("https://images.unsplash.com/photo-1536257104079-aa99c6460a5a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGFuZHNjYXBlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include backgroundImages("https://images.unsplash.com/photo-1536257104079-aa99c6460a5a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGFuZHNjYXBlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
   height: 100vh;
   width: 40vw;
 }
 
 .logo-title {
-  display: flex;
-  align-items: center;
+  @include flexBox(none, none, center);
   font-family: 'Abril Fatface', cursive;
-  // margin-top: 2%;
 }
 
 .application-title {
@@ -198,10 +169,7 @@ img {
 }
 
 .login-right-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexBox(column, center, center);
   width: 60vw;
 }
 
@@ -214,16 +182,15 @@ img {
   margin: 3%;
   padding: 1%;
   font-size: 120%;
-  border-radius: 3%;
+  @include standardBorderRadius;
 }
 
 .login-button {
   height: 9vh;
   width: 27vw;
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
+  background-color: $black;
+  color: $primary-background;
+  @include buttons;
 }
 
 .user-name-input,

@@ -11,29 +11,16 @@ class Trips {
     });
   }
 
-  // retrieveTripDestinationsForUser(id) {
-  //   const destinations = new Destinations()
-  //   const tripDestinationIds = this.retrieveTripsForUser(id).map((trip) => {
-  //     return trip.destinationID;
-  //   })
-  //   console.log(destinations)
-  //   console.log(tripDestinationIds)
-  //   // const tripDestinationNames = destinations.filter(())
-  // }
+  retrieveTripCost(destinations, trip) {
+    return destinations.reduce((sum, destination) => {
+      if (trip.destinationID === destination.id) {
+        sum += (((trip.duration * destination.estimatedLodgingCostPerDay) +
+          destination.estimatedFlightCostPerPerson) * trip.travelers) * 1.1
+      }
+      return sum;
+    }, 0)
+  }
+
 }
-
-
-
-// {
-// "id": 1,
-// "userID": 44,
-// "destinationID": 49,
-// "travelers": 1,
-// "date": "2022/09/16",
-// "duration": 8,
-// "status": "approved",
-// "suggestedActivities": []
-// },
-
 
 module.exports = Trips;

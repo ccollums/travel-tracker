@@ -5,6 +5,7 @@ const Destinations = require('../src/Trips.js');
 describe('Trips', () => {
 
   let trips;
+  let destinationsData;
 
   beforeEach(function() {
     const tripsData = [{
@@ -37,6 +38,32 @@ describe('Trips', () => {
         status: "approved",
         suggestedActivities: []
       },
+    ]
+
+    destinationsData = [{
+        id: 2,
+        destination: 'Lima, Peru',
+        estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 400,
+        image: 'imageURL1',
+        alt: 'alt text 1'
+      },
+      {
+        id: 1,
+        destination: 'Cancun, Mexico',
+        estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 400,
+        image: 'imageURL2',
+        alt: 'alt text 2'
+      },
+      {
+        id: 49,
+        destination: 'London, England',
+        estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 400,
+        image: 'imageURL3',
+        alt: "alt text 3"
+      }
     ]
 
     trips = new Trips(tripsData)
@@ -74,35 +101,8 @@ describe('Trips', () => {
     ])
   })
 
-  // it('should retrieve only the trip locations for the user', function() {
-  //   const destinationsData = [{
-  //       id: 1,
-  //       destination: 'Lima, Peru',
-  //       estimatedLodgingCostPerDay: 70,
-  //       estimatedFlightCostPerPerson: 400,
-  //       image: 'imageURL1',
-  //       alt: 'alt text 1'
-  //     },
-  //     {
-  //       id: 2,
-  //       destination: 'Cancun, Mexico',
-  //       estimatedLodgingCostPerDay: 70,
-  //       estimatedFlightCostPerPerson: 400,
-  //       image: 'imageURL2',
-  //       alt: 'alt text 2'
-  //     },
-  //     {
-  //       id: 3,
-  //       destination: 'London, England',
-  //       estimatedLodgingCostPerDay: 70,
-  //       estimatedFlightCostPerPerson: 400,
-  //       image: 'imageURL3',
-  //       alt: "alt text 3"
-  //     }
-  //   ]
-  //
-  //   const destinations = new Destinations(destinationsData)
-  //
-  //   expect(trips.retrieveTripDestinationsForUser(44)).to.deep.equal([2, 1])
-  // })
+  it('should return estimated cost of trip', function() {
+    expect(trips.retrieveTripCost(destinationsData, trips.data[0])).to.equal(1056);
+  })
+
 });
