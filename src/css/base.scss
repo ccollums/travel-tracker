@@ -46,6 +46,11 @@ img {
   @include backgroundImages("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBiZWFjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
 }
 
+.current-trip {
+  height: 15vh;
+  border: 2px solid black;
+}
+
 .trips {
   @include flexBox(row, space-between)
 }

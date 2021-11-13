@@ -34,12 +34,12 @@
           </section>
           <section class="money-spent-this-year">
             <h1 class="total-spent">Total Spent this Year: </h1>
-            <h1 class="price">$2,457</h1>
+            <h1 class="price" id="totalSpentInPastYear"></h1>
           </section>
         </section>
         <section class="middle-image">
           <section class="dashboard-image">
-            <h1>Hi, Carly!</h1>
+            <h1 id="userGreeting">Hi, Carly!</h1>
           </section>
           <section class="label-input-boxes">
             <h1>Where to?</h1>
@@ -54,15 +54,19 @@
             </select>
           </form>
           <section class="submit-button-section">
-            <button class="submit-button">Away We Go</button>
-            <h3>Estimated Cost here</h3>
+            <button class="submit-button" id="submitButton">Away We Go</button>
+            <h3 id="estimatedCostOfTrip">Estimated Cost here</h3>
           </section>
         </section>
+        <section class="current-trip hidden" id="currentTrip">
+          <h1>I hope you are enjoying your current trip</h1>
+          <!-- add current trip HTML here -->
+        </section>
           <section class="trips">
-            <section class="pending-trips">
+            <section class="pending-trips" id="pendingTrips">
               <h1>Pending Trips</h1>
-              <section class='trip'>
-                <section class="trip-info">
+              <!-- <section class='trip'> -->
+                <!-- <section class="trip-info">
                   <h2>Wellington, New Zealand</h2>
                   <h2>2022/05/21</h2>
                 </section>
@@ -88,11 +92,11 @@
                   <h2>2022/05/21</h2>
                 </section>
                 <img class="trip-image" src="https://images.unsplash.com/photo-1555557356-51c5d7a8f4c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/>
-              </section>
+              </section> -->
             </section>
-            <section class="upcoming-trips">
+            <section class="upcoming-trips" id="upcomingTrips">
               <h1>Upcoming Trips</h1>
-              <section class='trip'>
+              <!-- <section class='trip'>
                 <section class="trip-info">
                   <h2>Wellington, New Zealand</h2>
                   <h2>2022/05/21</h2>
@@ -105,17 +109,17 @@
                   <h2>2022/05/21</h2>
                 </section>
                 <img class="trip-image" src="https://images.unsplash.com/photo-1534758607507-754e582adfa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/>
-              </section>
+              </section> -->
             </section>
-            <section class="past-trips">
+            <section class="past-trips" id="pastTrips">
               <h1>Past Trips</h1>
-              <section class='trip'>
+              <!-- <section class='trip'>
                 <section class="trip-info">
                   <h2>Wellington, New Zealand</h2>
                   <h2>2022/05/21</h2>
                 </section>
                 <img class="trip-image" src="https://images.unsplash.com/photo-1522576775862-7168ae29372c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80" alt=""/>
-              </section>
+              </section> -->
             </section>
           </section>
       </section>
