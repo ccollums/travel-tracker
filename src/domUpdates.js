@@ -1,3 +1,5 @@
+// import Glide from '@glidejs/glide'
+
 // user dashboard selectors
 const totalSpentInPastYear = document.getElementById('totalSpentInPastYear');
 const userGreeting = document.getElementById('userGreeting');
@@ -38,7 +40,7 @@ const domUpdates = {
           pendingTripsContainer.innerHTML += `
           <section class='trip'>
             <section class="trip-info">
-              <h2 class="trip-details">${destination.destination}</h2>
+              <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
@@ -58,7 +60,7 @@ const domUpdates = {
           upcomingTripsContainer.innerHTML += `
           <section class='trip'>
             <section class="trip-info">
-              <h2 class="trip-details">${destination.destination}</h2>
+              <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
@@ -78,7 +80,7 @@ const domUpdates = {
           pastTripsContainer.innerHTML += `
           <section class='trip'>
             <section class="trip-info">
-              <h2 class="trip-details">${destination.destination}</h2>
+              <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
@@ -119,6 +121,12 @@ const domUpdates = {
     estimatedCostDisplay.innerText = 'Please fill out all fields, to book your next adventure!'
   }
 },
+
+// glider() {
+//   new Glide(document.querySelector('.glide')) {
+//
+//   }
+// }
 
 }
 

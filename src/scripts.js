@@ -29,6 +29,7 @@ const createInitialDashboard = (data) => {
   console.log(destinations.data, 'dest')
   domUpdates.addDestinationsToDropDown(destinations.retrieveDestinationNames())
   addIndividualUserInfo();
+  // domUpdates.glider();
 }
 
 const addIndividualUserInfo = () => {
