@@ -23,7 +23,7 @@ class User {
           destination.estimatedFlightCostPerPerson) * trip.travelers) * 1.1
         }
       })
-      return total
+      return Number(total.toFixed(2))
     }, 0)
   }
 

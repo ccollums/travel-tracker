@@ -30,6 +30,17 @@ img {
   @include onePercentMargin;
 }
 
+select:invalid{
+       color: gray;
+   }
+   option{
+       color: black;
+   }
+
+.name {
+  font-weight: 700;
+}
+
 .main-dashboard {
   @include flexBox(column);
 }
@@ -46,6 +57,11 @@ img {
   @include backgroundImages("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBiZWFjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
 }
 
+.current-trip {
+  height: 15vh;
+  border: 2px solid black;
+}
+
 .trips {
   @include flexBox(row, space-between)
 }
@@ -56,9 +72,9 @@ img {
   @include flexBox(column, none, center);
   @include standardBorderRadius;
   width: 40vw;
-  min-height: 40vh;
+  height: 60vh;
   margin: 1.5%;
-  // overflow: auto;
+  overflow: scroll;
 }
 
 .upcoming-trips {
@@ -122,6 +138,12 @@ img {
   color: $dark-tan;
 }
 
+.no-date-found {
+  color: $black;
+  font-size: 100%;
+  margin-top: 15%;
+}
+
 .money-spent-this-year {
   @include flexBox(none, center, center)
 }
@@ -140,9 +162,15 @@ img {
   @include flexBox(none, space-between, center);
   background-color: $primary-background;
   @include standardBorderRadius;
-  min-height: 15vh;
+  min-height: 20vh;
   width: 28vw;
   margin: 4%;
+}
+
+.trip-details {
+  color: black;
+  align-self: left;
+  margin: 15%;
 }
 
 // login page styling below
