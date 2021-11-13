@@ -33,13 +33,13 @@
             <h1 class="application-title">Voyager</h1>
           </section>
           <section class="money-spent-this-year">
-            <h1 class="total-spent">Total Spent this Year: </h1>
+            <h1 class="total-spent">Total Spent in Past Year: </h1>
             <h1 class="price" id="totalSpentInPastYear"></h1>
           </section>
         </section>
         <section class="middle-image">
           <section class="dashboard-image">
-            <h1 id="userGreeting">Hi, Carly!</h1>
+            <h1 id="userGreeting"></h1>
           </section>
           <section class="label-input-boxes">
             <h1>Where to?</h1>
@@ -48,14 +48,13 @@
             <input class="date-input" id="dateInput" type="date" value="YYYY-MM-DD" placeholder="date" required/>
             <input class="duration-input" id="durationInput" type="number" min="1" placeholder="duration" required/>
             <input class="number-travelers-input" id="numberOfTravelersInput" type="number" min="1" placeholder="# of travelers" required/>
-            <select class="destination-drop-down" name="dropDown" id="dropDownMenuDestinations">
-              <option value="destination">destinations</option>
-              <option value="destination">London</option>
+            <select class="destination-drop-down" name="dropDown" id="dropDownMenuDestinations" required>
+              <option value="" disabled selected hidden>destinations</option>
             </select>
           </form>
           <section class="submit-button-section">
             <button class="submit-button" id="submitButton">Away We Go</button>
-            <h3 id="estimatedCostOfTrip">Estimated Cost here</h3>
+            <h3 id="estimatedCostOfTrip"></h3>
           </section>
         </section>
         <section class="current-trip hidden" id="currentTrip">

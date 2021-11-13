@@ -30,6 +30,13 @@ img {
   @include onePercentMargin;
 }
 
+select:invalid{
+       color: gray;
+   }
+   option{
+       color: black;
+   }
+
 .main-dashboard {
   @include flexBox(column);
 }
@@ -127,6 +134,12 @@ img {
   color: $dark-tan;
 }
 
+.no-date-found {
+  color: $black;
+  font-size: 100%;
+  margin-top: 15%;
+}
+
 .money-spent-this-year {
   @include flexBox(none, center, center)
 }
@@ -148,6 +161,12 @@ img {
   min-height: 15vh;
   width: 28vw;
   margin: 4%;
+}
+
+.trip-details {
+  color: black;
+  align-self: left;
+  margin: 15%;
 }
 
 // login page styling below

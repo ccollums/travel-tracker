@@ -1,7 +1,6 @@
 // user dashboard selectors
 const totalSpentInPastYear = document.getElementById('totalSpentInPastYear');
 const userGreeting = document.getElementById('userGreeting');
-const awayWeGoBtn = document.getElementById('submitButton');
 const dateInput = document.getElementById('dateInput');
 const durationInput = document.getElementById('durationInput');
 const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
@@ -23,16 +22,24 @@ const domUpdates = {
     userGreeting.innerText = `Hi, ${user.returnFirstName()}`
   },
 
+  addDestinationsToDropDown(destinationNames) {
+    destinationNames.forEach((destination) => {
+      destinationInput.innerHTML += `<option value="destination">${destination}</option>`
+    })
+  },
+
   displayPendingTrips(user, destinations) {
-    console.log(user.retrievePendingTrips(), 'pending trips')
+    if (user.retrievePendingTrips().length === 0) {
+      pendingTripsContainer.innerHTML += `<h2 class="no-date-found">No Pending Trips</h2>`
+    }
     user.retrievePendingTrips().forEach((trip) => {
       destinations.forEach((destination) => {
         if (destination.id === trip.destinationID) {
           pendingTripsContainer.innerHTML += `
           <section class='trip'>
             <section class="trip-info">
-              <h2>${destination.destination}</h2>
-              <h2>${trip.date}</h2>
+              <h2 class="trip-details">${destination.destination}</h2>
+              <h2 class="trip-details">${trip.date}</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -42,15 +49,17 @@ const domUpdates = {
   },
 
   displayUpcomingTrips(user, destinations) {
-    console.log(user.retrieveFutureTrips(), 'future trips')
+    if (user.retrieveFutureTrips().length === 0) {
+      upcomingTripsContainer.innerHTML += `<h2 class="no-date-found">No Upcoming Trips</h2>`
+    }
     user.retrieveFutureTrips().forEach((trip) => {
       destinations.forEach((destination) => {
         if (destination.id === trip.destinationID) {
           upcomingTripsContainer.innerHTML += `
           <section class='trip'>
             <section class="trip-info">
-              <h2>${destination.destination}</h2>
-              <h2>${trip.date}</h2>
+              <h2 class="trip-details">${destination.destination}</h2>
+              <h2 class="trip-details">${trip.date}</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -60,15 +69,17 @@ const domUpdates = {
   },
 
   displayPastTrips(user, destinations) {
-    console.log(user.retrievePastTrips(), 'past trips')
+    if (user.retrievePastTrips().length === 0) {
+      pastTripsContainer.innerHTML += `<h2 class="no-date-found">No Past Trips</h2>`
+    }
     user.retrievePastTrips().forEach((trip) => {
       destinations.forEach((destination) => {
         if (destination.id === trip.destinationID) {
           pastTripsContainer.innerHTML += `
           <section class='trip'>
             <section class="trip-info">
-              <h2>${destination.destination}</h2>
-              <h2>${trip.date}</h2>
+              <h2 class="trip-details">${destination.destination}</h2>
+              <h2 class="trip-details">${trip.date}</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -78,8 +89,8 @@ const domUpdates = {
   },
 
   displayCurrentTrip(user, destinations) {
-    console.log(user.retrieveCurrentTrips(), 'current trip')
     if (user.retrieveCurrentTrips()) {
+      this.show(currentTripContainer);
     user.retrieveCurrentTrips().forEach((trip) => {
       destinations.forEach((destination) => {
         if (destination.id === trip.destinationID) {
@@ -89,6 +100,23 @@ const domUpdates = {
         }
       })
     })
+  }
+},
+
+  show(element) {
+    element.classList.remove('hidden')
+  },
+
+  hide(element) {
+    element.classList.add('hidden')
+  },
+
+  resolveTripRequest(tripEstimate) {
+  if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
+    estimatedCostDisplay.innerText = `This trip is estimated to cost ${tripEstimate}`;
+  }
+  else {
+    estimatedCostDisplay.innerText = 'Please fill out all fields, to book your next adventure!'
   }
 },
 
