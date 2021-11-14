@@ -3,9 +3,9 @@
 // user dashboard selectors
 const totalSpentInPastYear = document.getElementById('totalSpentInPastYear');
 const userGreeting = document.getElementById('userGreeting');
-const dateInput = document.getElementById('dateInput');
-const durationInput = document.getElementById('durationInput');
-const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
+// const dateInput = document.getElementById('dateInput');
+// const durationInput = document.getElementById('durationInput');
+// const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
 const destinationInput = document.getElementById('dropDownMenuDestinations');
 const estimatedCostDisplay = document.getElementById('estimatedCostOfTrip');
 const pendingTripsContainer = document.getElementById('pendingTrips');
@@ -26,7 +26,7 @@ const domUpdates = {
 
   addDestinationsToDropDown(destinationNames) {
     destinationNames.forEach((destination) => {
-      destinationInput.innerHTML += `<option value="destination">${destination}</option>`
+      destinationInput.innerHTML += `<option value="${destination}">${destination}</option>`
     })
   },
 
