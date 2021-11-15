@@ -50,11 +50,10 @@ const addIndividualUserInfo = () => {
 }
 
 const submitNewTripRequest = (event) => {
-  console.log(destinationInput.value, 'input')
   event.preventDefault()
-  domUpdates.resolveTripRequest()
+  // if (domUpdates.resolveTripRequest()) {
     const tripRequest = {
-      id: Number(trips.data.length + 1),
+      id: Number(trips.data.length),
       userID: Number(user.id),
       destinationID: Number(destinations.retrieveDestinationID(destinationInput.value)),
       travelers: Number(numberOfTravelersInput.value),
@@ -63,10 +62,18 @@ const submitNewTripRequest = (event) => {
       status: 'pending',
       suggestedActivities: [],
     }
-    console.log(tripRequest, 'request')
+    domUpdates.resolveTripRequest(trips.retrieveTripCost(destinations.data, tripRequest));
+    domUpdates.displayPendingTrips(user, destinations.data);
     addData(tripRequest, 'trips')
-      .then(data => console.log(data, 'data'))
+      .then(data => addTripRequestToUserTrips(data), 'data')
       .catch(err => console.log(err, "error"))
+  // }
+}
+
+const addTripRequestToUserTrips = (trip) => {
+  trips.data.push(trip)
+  domUpdates.displayPendingTrips(user, destinations.data);
+  console.log(trips, 'trips after request')
 }
 
 const onPageLoad = () => {
