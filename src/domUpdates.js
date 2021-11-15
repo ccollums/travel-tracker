@@ -13,6 +13,8 @@ const upcomingTripsContainer = document.getElementById('upcomingTrips');
 const pastTripsContainer = document.getElementById('pastTrips');
 const currentTripContainer = document.getElementById('currentTrip');
 // login page selectors
+const loginPage = document.getElementById('loginPage');
+const mainDashboard = document.getElementById('mainDashboard')
 
 const domUpdates = {
 
@@ -106,6 +108,8 @@ const domUpdates = {
 },
 
   show(element) {
+    console.log(element)
+    console.log(element.classList.remove('hidden'))
     element.classList.remove('hidden')
   },
 

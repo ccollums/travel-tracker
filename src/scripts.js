@@ -20,7 +20,11 @@ const dateInput = document.getElementById('dateInput');
 const durationInput = document.getElementById('durationInput');
 const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
 const destinationInput = document.getElementById('dropDownMenuDestinations');
-
+const userNameInput = document.getElementById('userNameInput');
+const passwordInput = document.getElementById('passwordInput');
+const loginPage = document.getElementById('loginPage');
+const mainDashboard = document.getElementById('mainDashboard')
+const loginButton = document.getElementById('loginButton');
 
 const retrieveData = (id) => {
   const allPromise = Promise.all([getData('travelers'), getData('trips'), getData('destinations'), getData(`travelers/${id}`)])
@@ -34,7 +38,7 @@ const createInitialDashboard = (data) => {
   user = new User(data[3])
   domUpdates.addDestinationsToDropDown(destinations.retrieveDestinationNames())
   addIndividualUserInfo();
-  console.log(trips)
+  console.log(user)
   // domUpdates.glider();
 }
 
@@ -76,10 +80,27 @@ const addTripRequestToUserTrips = (trip) => {
   console.log(trips, 'trips after request')
 }
 
-const onPageLoad = () => {
-  return retrieveData(Math.floor(Math.random() * 50));
+// const login = () => {
+//   const findUserNameId = userNameInput.value.split('username');
+//   const id = Number(findUserNameId[1]);
+//   if (userNameInput.value && passwordInput.value) {
+//     console.log('hi')
+//     domUpdates.show('mainDashboard')
+//     domUpdates.hide('loginPage');
+//   }
+// }
+
+const uponLogIn = () => {
+  const findUserNameId = userNameInput.value.split('username');
+  const id = Number(findUserNameId[1]);
+  if (id >= 1 && id <= 50 && userNameInput.value === `username${id}` && passwordInput.value === 'password') {
+    mainDashboard.classList.remove('hidden');
+    loginPage.classList.add('hidden');
+    return retrieveData(id);
+  }
 }
 
 
-window.addEventListener('load', onPageLoad);
+// window.addEventListener('load', login);
 awayWeGoBtn.addEventListener('click', submitNewTripRequest);
+loginButton.addEventListener('click', uponLogIn);
