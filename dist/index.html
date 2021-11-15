@@ -13,7 +13,7 @@
   </head>
   <body>
     <main>
-      <section class="login-page hidden" id=loginPage>
+      <section class="login-page" id=loginPage>
         <section class="login-photo-left-side">
           <section class="logo-title">
             <img class="application-logo" src="./images/travel-icon.svg" alt="Globe icon with location pins"/>
@@ -28,7 +28,7 @@
           <button class="login-button" id="loginButton">Sign In</button>
         </section>
       </section>
-      <section class="main-dashboard">
+      <section class="main-dashboard hidden" id ='mainDashboard'>
         <section class="nav-bar">
           <section class="logo-title">
             <img class="application-logo" src="./images/travel-icon.svg" alt="Globe icon with location pins"/>
@@ -47,7 +47,7 @@
             <h1>Where to?</h1>
           </section>
           <form class="new-trip-inputs">
-            <input class="date-input" id="dateInput" type="date" value="YYYY-MM-DD" placeholder="date" required/>
+            <input class="date-input" id="dateInput" type="date" value="yyyy-MM-dd" placeholder="date" required/>
             <input class="duration-input" id="durationInput" type="number" min="1" placeholder="duration" required/>
             <input class="number-travelers-input" id="numberOfTravelersInput" type="number" min="1" placeholder="# of travelers" required/>
             <select class="destination-drop-down" name="dropDown" id="dropDownMenuDestinations" required>

@@ -18,6 +18,13 @@ class Destinations {
     return result;
   }
 
+  retrieveDestinationID(destinationName) {
+    const result = this.data.find((destination) => {
+      return destination.destination === destinationName
+    })
+    return result.id;
+  }
+
 }
 
 module.exports = Destinations;

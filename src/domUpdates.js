@@ -3,9 +3,9 @@
 // user dashboard selectors
 const totalSpentInPastYear = document.getElementById('totalSpentInPastYear');
 const userGreeting = document.getElementById('userGreeting');
-const dateInput = document.getElementById('dateInput');
-const durationInput = document.getElementById('durationInput');
-const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
+// const dateInput = document.getElementById('dateInput');
+// const durationInput = document.getElementById('durationInput');
+// const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
 const destinationInput = document.getElementById('dropDownMenuDestinations');
 const estimatedCostDisplay = document.getElementById('estimatedCostOfTrip');
 const pendingTripsContainer = document.getElementById('pendingTrips');
@@ -13,6 +13,8 @@ const upcomingTripsContainer = document.getElementById('upcomingTrips');
 const pastTripsContainer = document.getElementById('pastTrips');
 const currentTripContainer = document.getElementById('currentTrip');
 // login page selectors
+const loginPage = document.getElementById('loginPage');
+const mainDashboard = document.getElementById('mainDashboard')
 
 const domUpdates = {
 
@@ -26,11 +28,12 @@ const domUpdates = {
 
   addDestinationsToDropDown(destinationNames) {
     destinationNames.forEach((destination) => {
-      destinationInput.innerHTML += `<option value="destination">${destination}</option>`
+      destinationInput.innerHTML += `<option value="${destination}">${destination}</option>`
     })
   },
 
   displayPendingTrips(user, destinations) {
+    pendingTripsContainer.innerHTML = '';
     if (user.retrievePendingTrips().length === 0) {
       pendingTripsContainer.innerHTML += `<h2 class="no-date-found">No Pending Trips</h2>`
     }
@@ -51,6 +54,7 @@ const domUpdates = {
   },
 
   displayUpcomingTrips(user, destinations) {
+    upcomingTripsContainer.innerHTML = '';
     if (user.retrieveFutureTrips().length === 0) {
       upcomingTripsContainer.innerHTML += `<h2 class="no-date-found">No Upcoming Trips</h2>`
     }
@@ -71,6 +75,7 @@ const domUpdates = {
   },
 
   displayPastTrips(user, destinations) {
+    pastTripsContainer.innerHTML = '';
     if (user.retrievePastTrips().length === 0) {
       pastTripsContainer.innerHTML += `<h2 class="no-date-found">No Past Trips</h2>`
     }
@@ -91,6 +96,7 @@ const domUpdates = {
   },
 
   displayCurrentTrip(user, destinations) {
+    currentTripContainer.innerHTML = '';
     if (user.retrieveCurrentTrips()) {
       this.show(currentTripContainer);
     user.retrieveCurrentTrips().forEach((trip) => {
@@ -106,6 +112,8 @@ const domUpdates = {
 },
 
   show(element) {
+    console.log(element)
+    console.log(element.classList.remove('hidden'))
     element.classList.remove('hidden')
   },
 
@@ -115,7 +123,7 @@ const domUpdates = {
 
   resolveTripRequest(tripEstimate) {
   if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
-    estimatedCostDisplay.innerText = `This trip is estimated to cost ${tripEstimate}`;
+    estimatedCostDisplay.innerText = `This trip is estimated to cost ${tripEstimate} (with 10% agent fee)`;
   }
   else {
     estimatedCostDisplay.innerText = 'Please fill out all fields, to book your next adventure!'

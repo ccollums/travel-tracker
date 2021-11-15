@@ -7,6 +7,8 @@ import User from './User';
 import Trips from './Trips';
 import Destinations from './Destinations';
 import domUpdates from './domUpdates';
+const dayjs = require('dayjs')
+
 
 let user;
 let travelers;
@@ -14,6 +16,15 @@ let trips;
 let destinations;
 
 const awayWeGoBtn = document.getElementById('submitButton');
+const dateInput = document.getElementById('dateInput');
+const durationInput = document.getElementById('durationInput');
+const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
+const destinationInput = document.getElementById('dropDownMenuDestinations');
+const userNameInput = document.getElementById('userNameInput');
+const passwordInput = document.getElementById('passwordInput');
+const loginPage = document.getElementById('loginPage');
+const mainDashboard = document.getElementById('mainDashboard')
+const loginButton = document.getElementById('loginButton');
 
 const retrieveData = (id) => {
   const allPromise = Promise.all([getData('travelers'), getData('trips'), getData('destinations'), getData(`travelers/${id}`)])
@@ -21,12 +32,10 @@ const retrieveData = (id) => {
 }
 
 const createInitialDashboard = (data) => {
-  console.log(data)
   travelers = new Travelers(data[0].travelers);
   trips = new Trips(data[1].trips);
   destinations = new Destinations(data[2].destinations);
   user = new User(data[3])
-  console.log(destinations.data, 'dest')
   domUpdates.addDestinationsToDropDown(destinations.retrieveDestinationNames())
   addIndividualUserInfo();
   // domUpdates.glider();
@@ -41,42 +50,63 @@ const addIndividualUserInfo = () => {
   domUpdates.displayUpcomingTrips(user, destinations.data);
   domUpdates.displayPastTrips(user, destinations.data);
   domUpdates.displayCurrentTrip(user, destinations.data);
-  console.log(user.trips)
 }
 
 const submitNewTripRequest = (event) => {
   event.preventDefault()
-  if (domUpdates.resolveSleepForm()) {
+  // if (domUpdates.resolveTripRequest()) {
     const tripRequest = {
-      id: trips.length + 1,
-      userID: user.id,
-      destinationID: destination.id,
-      date: Number(dateInput.value),
+      id: Number(trips.data.length + 1),
+      userID: Number(user.id),
+      destinationID: Number(destinations.retrieveDestinationID(destinationInput.value)),
+      travelers: Number(numberOfTravelersInput.value),
+      date: dayjs(dateInput.value).format('YYYY/MM/DD'),
       duration: Number(durationInput.value),
       status: 'pending',
       suggestedActivities: [],
     }
-    addData(userSleepData, 'sleep')
-      .then(data => updateUserData('sleepData', data))
+    domUpdates.resolveTripRequest(trips.retrieveTripCost(destinations.data, tripRequest).toFixed(2));
+    // domUpdates.displayPendingTrips(user, destinations.data);
+    addData(tripRequest, 'trips')
+      .then(data => updatePendingTrips(data), 'data')
       .catch(err => console.log(err, "error"))
+  // }
+}
+
+const updatePendingTrips = (data) => {
+  // trips.data.push(data)
+  // user.trips = trips.retrieveTripsForUser(user.id)
+  retrieveData(user.id)
+  // trips = new Trips(data[1].trips);
+  // domUpdates.displayPendingTrips(user, destinations.data);
+  console.log(trips, 'trips after request')
+}
+
+const handleErrors = () => {
+  updatePendingTrips()
+}
+
+// const login = () => {
+//   const findUserNameId = userNameInput.value.split('username');
+//   const id = Number(findUserNameId[1]);
+//   if (userNameInput.value && passwordInput.value) {
+//     console.log('hi')
+//     domUpdates.show('mainDashboard')
+//     domUpdates.hide('loginPage');
+//   }
+// }
+
+const uponLogIn = () => {
+  const findUserNameId = userNameInput.value.split('traveler');
+  const id = Number(findUserNameId[1]);
+  if (id >= 1 && id <= 50 && userNameInput.value === `traveler${id}` && passwordInput.value === 'travel') {
+    mainDashboard.classList.remove('hidden');
+    loginPage.classList.add('hidden');
+    return retrieveData(id);
   }
 }
 
-// {
-// "id": 1,
-// "userID": 44,
-// "destinationID": 49,
-// "travelers": 1,
-// "date": "2022/09/16",
-// "duration": 8,
-// "status": "approved",
-// "suggestedActivities": []
-// },
 
-const onPageLoad = () => {
-  return retrieveData(Math.floor(Math.random() * 50));
-}
-
-
-window.addEventListener('load', onPageLoad);
-// awayWeGoBtn.addEventListener('click', submitNewTripRequest);
+// window.addEventListener('load', login);
+awayWeGoBtn.addEventListener('click', submitNewTripRequest);
+loginButton.addEventListener('click', uponLogIn);
