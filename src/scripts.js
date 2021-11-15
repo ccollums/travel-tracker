@@ -74,16 +74,11 @@ const submitNewTripRequest = (event) => {
 }
 
 const updatePendingTrips = (data) => {
-  // trips.data.push(data)
-  // user.trips = trips.retrieveTripsForUser(user.id)
   retrieveData(user.id)
-  // trips = new Trips(data[1].trips);
-  // domUpdates.displayPendingTrips(user, destinations.data);
-  console.log(trips, 'trips after request')
 }
 
 const handleErrors = () => {
-  updatePendingTrips()
+
 }
 
 // const login = () => {
@@ -106,7 +101,11 @@ const uponLogIn = () => {
   }
 }
 
+const login = () => {
+  retrieveData(6);
+}
 
-// window.addEventListener('load', login);
+
+window.addEventListener('load', login);
 awayWeGoBtn.addEventListener('click', submitNewTripRequest);
 loginButton.addEventListener('click', uponLogIn);
