@@ -8,9 +8,9 @@ const userGreeting = document.getElementById('userGreeting');
 // const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
 const destinationInput = document.getElementById('dropDownMenuDestinations');
 const estimatedCostDisplay = document.getElementById('estimatedCostOfTrip');
-const pendingTripsContainer = document.getElementById('pendingTrips');
-const upcomingTripsContainer = document.getElementById('upcomingTrips');
-const pastTripsContainer = document.getElementById('pastTrips');
+const pendingTripsContainer = document.getElementById('userPendingTrips');
+const upcomingTripsContainer = document.getElementById('userUpcomingTrips');
+const pastTripsContainer = document.getElementById('userPastTrips');
 const currentTripContainer = document.getElementById('currentTrip');
 // login page selectors
 const loginPage = document.getElementById('loginPage');
@@ -123,7 +123,7 @@ const domUpdates = {
 
   resolveTripRequest(tripEstimate) {
   if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
-    estimatedCostDisplay.innerText = `This trip is estimated to cost ${tripEstimate} (with 10% agent fee)`;
+    estimatedCostDisplay.innerText = `This trip is estimated to cost $${tripEstimate} (10% agent fee included)`;
   }
   else {
     estimatedCostDisplay.innerText = 'Please fill out all fields, to book your next adventure!'
