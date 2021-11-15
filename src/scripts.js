@@ -38,7 +38,6 @@ const createInitialDashboard = (data) => {
   user = new User(data[3])
   domUpdates.addDestinationsToDropDown(destinations.retrieveDestinationNames())
   addIndividualUserInfo();
-  console.log(user)
   // domUpdates.glider();
 }
 
@@ -91,9 +90,9 @@ const addTripRequestToUserTrips = (trip) => {
 // }
 
 const uponLogIn = () => {
-  const findUserNameId = userNameInput.value.split('username');
+  const findUserNameId = userNameInput.value.split('traveler');
   const id = Number(findUserNameId[1]);
-  if (id >= 1 && id <= 50 && userNameInput.value === `username${id}` && passwordInput.value === 'password') {
+  if (id >= 1 && id <= 50 && userNameInput.value === `traveler${id}` && passwordInput.value === 'travel') {
     mainDashboard.classList.remove('hidden');
     loginPage.classList.add('hidden');
     return retrieveData(id);
