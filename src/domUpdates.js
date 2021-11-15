@@ -45,6 +45,7 @@ const domUpdates = {
             <section class="trip-info">
               <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
+              <h2 class="trip-details">${trip.duration} nights</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -66,6 +67,7 @@ const domUpdates = {
             <section class="trip-info">
               <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
+              <h2 class="trip-details">${trip.duration} nights</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -87,6 +89,7 @@ const domUpdates = {
             <section class="trip-info">
               <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
+              <h2 class="trip-details">${trip.duration} nights</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`

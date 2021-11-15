@@ -104,6 +104,11 @@ img {
   background-color: $middle-teal;
 }
 
+.trip-image {
+  height: 20vh;
+  width: 18vw;
+}
+
 .new-trip-inputs {
   @include flexBox(row, center);
 }
