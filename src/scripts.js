@@ -101,11 +101,6 @@ const uponLogIn = () => {
   }
 }
 
-const login = () => {
-  retrieveData(6);
-}
-
-
-window.addEventListener('load', login);
+// window.addEventListener('load', login);
 awayWeGoBtn.addEventListener('click', submitNewTripRequest);
 loginButton.addEventListener('click', uponLogIn);
