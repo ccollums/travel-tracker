@@ -56,7 +56,7 @@ const submitNewTripRequest = (event) => {
   event.preventDefault()
   // if (domUpdates.resolveTripRequest()) {
     const tripRequest = {
-      id: Number(trips.data.length),
+      id: Number(trips.data.length + 1),
       userID: Number(user.id),
       destinationID: Number(destinations.retrieveDestinationID(destinationInput.value)),
       travelers: Number(numberOfTravelersInput.value),
@@ -65,18 +65,25 @@ const submitNewTripRequest = (event) => {
       status: 'pending',
       suggestedActivities: [],
     }
-    domUpdates.resolveTripRequest(trips.retrieveTripCost(destinations.data, tripRequest));
-    domUpdates.displayPendingTrips(user, destinations.data);
+    domUpdates.resolveTripRequest(trips.retrieveTripCost(destinations.data, tripRequest).toFixed(2));
+    // domUpdates.displayPendingTrips(user, destinations.data);
     addData(tripRequest, 'trips')
-      .then(data => addTripRequestToUserTrips(data), 'data')
+      .then(data => updatePendingTrips(data), 'data')
       .catch(err => console.log(err, "error"))
   // }
 }
 
-const addTripRequestToUserTrips = (trip) => {
-  trips.data.push(trip)
-  domUpdates.displayPendingTrips(user, destinations.data);
+const updatePendingTrips = (data) => {
+  // trips.data.push(data)
+  // user.trips = trips.retrieveTripsForUser(user.id)
+  retrieveData(user.id)
+  // trips = new Trips(data[1].trips);
+  // domUpdates.displayPendingTrips(user, destinations.data);
   console.log(trips, 'trips after request')
+}
+
+const handleErrors = () => {
+  updatePendingTrips()
 }
 
 // const login = () => {

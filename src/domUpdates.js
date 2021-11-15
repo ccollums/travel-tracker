@@ -33,6 +33,7 @@ const domUpdates = {
   },
 
   displayPendingTrips(user, destinations) {
+    pendingTripsContainer.innerHTML = '';
     if (user.retrievePendingTrips().length === 0) {
       pendingTripsContainer.innerHTML += `<h2 class="no-date-found">No Pending Trips</h2>`
     }
@@ -53,6 +54,7 @@ const domUpdates = {
   },
 
   displayUpcomingTrips(user, destinations) {
+    upcomingTripsContainer.innerHTML = '';
     if (user.retrieveFutureTrips().length === 0) {
       upcomingTripsContainer.innerHTML += `<h2 class="no-date-found">No Upcoming Trips</h2>`
     }
@@ -73,6 +75,7 @@ const domUpdates = {
   },
 
   displayPastTrips(user, destinations) {
+    pastTripsContainer.innerHTML = '';
     if (user.retrievePastTrips().length === 0) {
       pastTripsContainer.innerHTML += `<h2 class="no-date-found">No Past Trips</h2>`
     }
@@ -93,6 +96,7 @@ const domUpdates = {
   },
 
   displayCurrentTrip(user, destinations) {
+    currentTripContainer.innerHTML = '';
     if (user.retrieveCurrentTrips()) {
       this.show(currentTripContainer);
     user.retrieveCurrentTrips().forEach((trip) => {
@@ -119,7 +123,7 @@ const domUpdates = {
 
   resolveTripRequest(tripEstimate) {
   if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
-    estimatedCostDisplay.innerText = `This trip is estimated to cost ${tripEstimate}`;
+    estimatedCostDisplay.innerText = `This trip is estimated to cost ${tripEstimate} (with 10% agent fee)`;
   }
   else {
     estimatedCostDisplay.innerText = 'Please fill out all fields, to book your next adventure!'
