@@ -7,7 +7,7 @@
 - [Contributors](#Contributors)
 - [Technologies](#Technologies)
 - [Artists](#Artists)
-- [Installation](#Installation and Setup)
+- [Installation](#Installation)
 - [Illustrations](#Illustrations)
 - [Wins](#Wins)
 - [Challenges](#Challenges)
