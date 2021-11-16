@@ -30,25 +30,18 @@ img {
   @include onePercentMargin;
 }
 
-// select:invalid{
-//        color: gray;
-//    }
-//    option{
-//        color: black;
-//    }
-
 .name {
   font-weight: 700;
 }
 
 .main-dashboard {
-  @include flexBox(column);
+  @include flexBox(column, center);
 }
 
 .nav-bar {
   @include flexBox(row, space-between, center);
   height: 12vh;
-  padding: 1%;
+  padding: 2% 0 1% 0;
 }
 
 .middle-image {
@@ -64,8 +57,11 @@ img {
 }
 
 .current-trip {
-  height: 15vh;
-  border: 2px solid black;
+  height: 20vh;
+  width: 100%;
+  margin: 1%;
+  background-color: $light-tan;
+  @include flexBox(row, center, center)
 }
 
 .trips {
@@ -74,6 +70,7 @@ img {
 
 .trips-title {
   width: max-content;
+  margin: 4%;
 }
 
 .upcoming-trips,
@@ -106,7 +103,7 @@ img {
 
 .trip-image {
   height: 20vh;
-  width: 18vw;
+  width: 15vw;
 }
 
 .new-trip-inputs {

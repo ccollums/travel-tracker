@@ -54,24 +54,26 @@ const addIndividualUserInfo = () => {
 
 const submitNewTripRequest = (event) => {
   event.preventDefault()
-  // if (domUpdates.resolveTripRequest()) {
-    const tripRequest = {
-      id: Number(trips.data.length + 1),
-      userID: Number(user.id),
-      destinationID: Number(destinations.retrieveDestinationID(destinationInput.value)),
-      travelers: Number(numberOfTravelersInput.value),
-      date: dayjs(dateInput.value).format('YYYY/MM/DD'),
-      duration: Number(durationInput.value),
-      status: 'pending',
-      suggestedActivities: [],
-    }
-    domUpdates.resolveTripRequest(trips.retrieveTripCost(destinations.data, tripRequest).toFixed(2));
-    // domUpdates.displayPendingTrips(user, destinations.data);
-    addData(tripRequest, 'trips')
-      .then(data => updatePendingTrips(data), 'data')
-      .catch(err => console.log(err, "error"))
-  // }
+  if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
+  const tripRequest = {
+    id: Number(trips.data.length + 1),
+    userID: Number(user.id),
+    destinationID: Number(destinations.retrieveDestinationID(destinationInput.value)),
+    travelers: Number(numberOfTravelersInput.value),
+    date: dayjs(dateInput.value).format('YYYY/MM/DD'),
+    duration: Number(durationInput.value),
+    status: 'pending',
+    suggestedActivities: [],
+  }
+  domUpdates.resolveTripRequestFilledOut(trips.retrieveTripCost(destinations.data, tripRequest).toFixed(2));
+  addData(tripRequest, 'trips')
+    .then(data => updatePendingTrips(data), 'data')
+    .catch(err => console.log(err, "error"))
+  } else {
+    domUpdates.resolveTripRequestNotFilledOut();
+  }
 }
+
 
 const updatePendingTrips = (data) => {
   retrieveData(user.id)
@@ -81,16 +83,6 @@ const handleErrors = () => {
 
 }
 
-// const login = () => {
-//   const findUserNameId = userNameInput.value.split('username');
-//   const id = Number(findUserNameId[1]);
-//   if (userNameInput.value && passwordInput.value) {
-//     console.log('hi')
-//     domUpdates.show('mainDashboard')
-//     domUpdates.hide('loginPage');
-//   }
-// }
-
 const uponLogIn = () => {
   const findUserNameId = userNameInput.value.split('traveler');
   const id = Number(findUserNameId[1]);
@@ -98,9 +90,11 @@ const uponLogIn = () => {
     mainDashboard.classList.remove('hidden');
     loginPage.classList.add('hidden');
     return retrieveData(id);
+  } else {
+    domUpdates.loginFeedback();
+
   }
 }
 
-// window.addEventListener('load', login);
 awayWeGoBtn.addEventListener('click', submitNewTripRequest);
 loginButton.addEventListener('click', uponLogIn);
