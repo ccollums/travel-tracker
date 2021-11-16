@@ -1,15 +1,16 @@
 // user dashboard selectors
 const totalSpentInPastYear = document.getElementById('totalSpentInPastYear');
 const userGreeting = document.getElementById('userGreeting');
-const destinationInput = document.getElementById('dropDownMenuDestinations');
 const estimatedCostDisplay = document.getElementById('estimatedCostOfTrip');
 const pendingTripsContainer = document.getElementById('userPendingTrips');
 const upcomingTripsContainer = document.getElementById('userUpcomingTrips');
 const pastTripsContainer = document.getElementById('userPastTrips');
 const currentTripContainer = document.getElementById('currentTrip');
+const dateInput = document.getElementById('dateInput');
+const durationInput = document.getElementById('durationInput');
+const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
+const destinationInput = document.getElementById('dropDownMenuDestinations');
 // login page selectors
-const loginPage = document.getElementById('loginPage');
-const mainDashboard = document.getElementById('mainDashboard');
 const loginFeedback = document.getElementById('loginFeedback');
 const userNameInput = document.getElementById('userNameInput');
 const passwordInput = document.getElementById('passwordInput');
@@ -114,8 +115,6 @@ const domUpdates = {
   },
 
   show(element) {
-    console.log(element)
-    console.log(element.classList.remove('hidden'))
     element.classList.remove('hidden')
   },
 
@@ -123,30 +122,35 @@ const domUpdates = {
     element.classList.add('hidden')
   },
 
-  resolveTripRequestFilledOut(tripEstimate) {
-    if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
-      estimatedCostDisplay.innerText = `This trip is estimated to cost $${tripEstimate} (10% agent fee included)`;
-    }
-  },
-
-  resolveTripRequestNotFilledOut() {
-    estimatedCostDisplay.innerText = 'Please fill out all fields to book your next adventure!'
+  resetTripRequestInputs() {
     dateInput.value = '';
     durationInput.value = '';
     numberOfTravelersInput.value = '';
     destinationInput.value = '';
   },
 
+  resolveTripRequestCompletedInputs(tripEstimate) {
+    if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
+      estimatedCostDisplay.innerText = `This trip is estimated to cost $${tripEstimate} (10% agent fee included)`;
+      this.resetTripRequestInputs();
+    }
+  },
 
+  tripRequestFeedback() {
+    estimatedCostDisplay.innerText = 'Please fill out all fields to book your next adventure!'
+    this.resetTripRequestInputs();
+  },
 
   loginFeedback() {
     loginFeedback.innerText = `Username or password are incorrect`;
     userNameInput.value = '';
     passwordInput.value = '';
-
   },
 
-}
+  handleErrors(err) {
+    estimatedCostDisplay.innerText = `Something went wrong, please try again. (${err})`
+  }
 
+}
 
 export default domUpdates;

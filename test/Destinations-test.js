@@ -7,29 +7,29 @@ describe('Destinations', () => {
 
   beforeEach(function() {
     const destinationsData = [{
-        id: 1,
-        destination: 'Lima, Peru',
-        estimatedLodgingCostPerDay: 70,
-        estimatedFlightCostPerPerson: 400,
-        image: 'imageURL1',
-        alt: 'alt text 1'
-      },
-      {
-        id: 2,
-        destination: 'Cancun, Mexico',
-        estimatedLodgingCostPerDay: 70,
-        estimatedFlightCostPerPerson: 400,
-        image: 'imageURL2',
-        alt: 'alt text 2'
-      },
-      {
-        id: 3,
-        destination: 'London, England',
-        estimatedLodgingCostPerDay: 70,
-        estimatedFlightCostPerPerson: 400,
-        image: 'imageURL3',
-        alt: "alt text 3"
-      }
+      id: 1,
+      destination: 'Lima, Peru',
+      estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400,
+      image: 'imageURL1',
+      alt: 'alt text 1'
+    },
+    {
+      id: 2,
+      destination: 'Cancun, Mexico',
+      estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400,
+      image: 'imageURL2',
+      alt: 'alt text 2'
+    },
+    {
+      id: 3,
+      destination: 'London, England',
+      estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400,
+      image: 'imageURL3',
+      alt: "alt text 3"
+    }
     ]
 
     destination = new Destinations(destinationsData)
@@ -60,6 +60,10 @@ describe('Destinations', () => {
 
   it('should return an array of the names of destinations in alphabitical order', function() {
     expect(destination.retrieveDestinationNames(1)).to.deep.equal(['Cancun, Mexico', 'Lima, Peru', 'London, England'])
+  })
+
+  it('should return the destination ID when given the destination name', function() {
+    expect(destination.retrieveDestinationID('Lima, Peru')).to.equal(1)
   })
 
 });

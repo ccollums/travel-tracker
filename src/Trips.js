@@ -1,5 +1,3 @@
-const Destinations = require('../src/Trips.js');
-
 class Trips {
   constructor(tripsData) {
     this.data = tripsData;

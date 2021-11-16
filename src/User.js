@@ -1,5 +1,4 @@
 const dayjs = require('dayjs')
-var isBetween = require('dayjs/plugin/isBetween')
 
 class User {
   constructor(user) {
@@ -7,10 +6,9 @@ class User {
     this.name = user.name;
     this.travelerType = user.travelerType;
     this.trips = user.trips;
-    this.destinations = user.destinations;
   }
 
-  returnFirstName () {
+  returnFirstName() {
     return this.name.split(' ')[0];
   }
 
@@ -18,9 +16,9 @@ class User {
     return this.trips.reduce((total, trip) => {
       destinations.forEach((destination) => {
         if (trip.destinationID === destination.id && dayjs().isAfter(dayjs(trip.date)) &&
-        dayjs(trip.date).isAfter(dayjs().subtract(1, 'year')) && trip.status === 'approved') {
+          dayjs(trip.date).isAfter(dayjs().subtract(1, 'year')) && trip.status === 'approved') {
           total += (((trip.duration * destination.estimatedLodgingCostPerDay) +
-          destination.estimatedFlightCostPerPerson) * trip.travelers) * 1.1
+            destination.estimatedFlightCostPerPerson) * trip.travelers) * 1.1
         }
       })
       return Number(total.toFixed(2))
