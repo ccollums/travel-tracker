@@ -60,7 +60,7 @@ Let the adventures begin!
 
 ## Illustrations
 
-![fitlitgif_small](https://user-images.githubusercontent.com/70819338/140833863-b19bfef8-f4b0-4d96-84af-796f630c5a7a.gif)   
+![loginPage](https://media.giphy.com/media/RDeIlueoaW3adJKgSO/giphy.gif)   
 
 ![fitlit_input_gif](https://user-images.githubusercontent.com/70819338/140833938-28c56a28-7e96-43b6-94d4-b38fe90a5787.gif)
 
