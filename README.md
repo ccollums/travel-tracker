@@ -1,105 +1,91 @@
-# Webpack Starter Kit
+# Travel Tracker - Voyager 
 
-## Clone This Repo
+### Mod2 2108 Final Solo Project 
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+## Table of Contents
+- [Abstract](#Abstract)
+- [Contributors](#Contributors)
+- [Technologies](#Technologies)
+- [Artists](#Artists)
+- [Installation and Setup](#Installation and Setup)
+- [Illustrations](#Illustrations)
+- [Wins](#Wins)
+- [Challenges](#Challenges)
+- [Future Additions](#Additions)
+- [Specs](#Specs)
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
 
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+## Abstract
+Travel Tracker is an application that allows users to track their travels (past, present, and future). It also gives the user the ability to request a new trip for a travel agent to either approve or deny. A user will arrive on a login page, upon logging in they will be taken to their travel dashboard. This dashboard will show them how much money they have spent in the past year, their past approved trips, upcoming approved trips, and pending trips (trips that have not yet been approved by an agent). If the user is on a trip during the time of login, the current trip will be shown on the dashboard as well. 
 
-## Setup
+Let the adventures begin!
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+## Contributors
+- [Carly Collums](https://github.com/ccollums)
 
-Then install the library dependencies. Run:
+## Technologies
+-  HTML
+-  CSS
+-  SCSS/SASS
+-  JavaScript
+-  Mocha/Chai
+-  Webpack
+-  Node.js
+-  Day.js
+-  fetch API (GET & POST)
+-  ESLint
 
-```bash
-npm install
-```
+## Artists 
+-Travel by Vectplus from the Noun Project (Globe Travel Icon)
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+### Installation and Setup:
+**To navigate the website live, a server download is required.**
+  1. Download the necessary server and API [here](https://github.com/turingschool-examples/travel-tracker-api)
+  2. Clone this repo down to your local machine 
+  3. Cd into the `server` directory (travel-tracker-api)
+  4. In the command line, run `npm install`
+  5. In the command line, run `npm start`
+**Then clone down this repository**
+  1. In your command line, `cd` into your local directory and clone down this repository -<br>
+      `git clone https://github.com/ccollums/travel-tracker`
+  2. Cd into the repo 
+  3. Install the necessary package dependencies - <br>
+      `npm install`
+  4. Run the command `npm start`
+  5. With both the server running and this package running, then visit `http://localhost:8080/` in your browser.
+**Upon arriving to application 
+  1. In order to login to the application pick a user id between 1 and 50. (there are 50 users in the API)
+  2. The username is `traveler(theUserId)` and the password is `travel`
+  3. For example: `traveler34` and `travel`
 
-## Where to Add Your Code
+## Illustrations
 
-##Artists 
+![fitlitgif_small](https://user-images.githubusercontent.com/70819338/140833863-b19bfef8-f4b0-4d96-84af-796f630c5a7a.gif)   
 
--Travel by Vectplus from the Noun Project
--View out to the Indian Ocean at dusk by wbulls from NounProject.com
+![fitlit_input_gif](https://user-images.githubusercontent.com/70819338/140833938-28c56a28-7e96-43b6-94d4-b38fe90a5787.gif)
 
-### JavaScript
+## Wins
+- Having an appealing UI/UX 
+- Using Day.js to find future/current/past trips to display to user. 
+- Implementing SCSS
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+## Challenges
+- Learning Day.js 
+- Error handling for POST requests 
 
-**Create all of your feature code files in the `src` directory.**
+## Additions
+### Future Iterations
+- Add the ability for an administrator (agent) to log in. 
+- The agent should have the ability to approve and deny trip reuqests.
+- Have a count down to the users next trip. 
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+## Project Spec
+Project specs can be found here
+-  [Travel Tracker](https://frontend.turing.edu/projects/travel-tracker.html)
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
 
-### HTML
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
 
-### CSS (SCSS/SASS)
-
-This project is setup to use SCSS/Sass files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
-
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`scripts.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
 
 ## Deploying to GitHub Pages
 
