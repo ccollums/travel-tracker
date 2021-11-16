@@ -64,6 +64,8 @@ Let the adventures begin!
 
 ![mainDashboard](https://media.giphy.com/media/ble6VRtm51MkugHIwQ/giphy.gif)
 
+![tripRequest](https://media.giphy.com/media/E65fg4xW1Nx4a5HoG2/giphy.gif)
+
 ## Wins
 - Having an appealing UI/UX 
 - Using Day.js to find future/current/past trips to display to user. 
