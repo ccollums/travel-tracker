@@ -146,6 +146,10 @@ const domUpdates = {
     passwordInput.value = '';
   },
 
+  handleErrors(err) {
+    estimatedCostDisplay.innerText = `Something went wrong, please try again. (${err})`
+  }
+
 }
 
 export default domUpdates;
