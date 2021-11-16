@@ -45,7 +45,7 @@ Let the adventures begin!
   3. Cd into the `server` directory (travel-tracker-api)
   4. In the command line, run `npm install`
   5. In the command line, run `npm start`
-**Then clone down this repository**
+**Then clone down this repository.**
   1. In your command line, `cd` into your local directory and clone down this repository -<br>
       `git clone https://github.com/ccollums/travel-tracker`
   2. Cd into the repo 
