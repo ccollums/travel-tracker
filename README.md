@@ -7,7 +7,7 @@
 - [Contributors](#Contributors)
 - [Technologies](#Technologies)
 - [Artists](#Artists)
-- [Installation and Setup](#Installation and Setup)
+- [Installation](#Installation and Setup)
 - [Illustrations](#Illustrations)
 - [Wins](#Wins)
 - [Challenges](#Challenges)
@@ -36,7 +36,7 @@ Let the adventures begin!
 -  ESLint
 
 ## Artists 
--Travel by Vectplus from the Noun Project (Globe Travel Icon)
+- Travel by Vectplus from the Noun Project (Globe Travel Icon)
 
 ### Installation and Setup:
 **To navigate the website live, a server download is required.**
