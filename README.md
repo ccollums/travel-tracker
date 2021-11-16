@@ -66,7 +66,7 @@ Let the adventures begin!
 
 ![loginPage](https://media.giphy.com/media/RDeIlueoaW3adJKgSO/giphy.gif)   
 
-### Trips of Page
+### User Trips on Page 
 
 ![mainDashboard](https://media.giphy.com/media/ble6VRtm51MkugHIwQ/giphy.gif)
 
