@@ -1,6 +1,6 @@
 import {getData, addData} from './api';
 import './css/base.scss';
-import './images/beach.jpg';
+import './images/beach-image.jpg';
 import './images/travel-icon.svg';
 import Travelers from './Travelers';
 import User from './User';
