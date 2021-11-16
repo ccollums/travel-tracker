@@ -114,8 +114,6 @@ const domUpdates = {
   },
 
   show(element) {
-    console.log(element)
-    console.log(element.classList.remove('hidden'))
     element.classList.remove('hidden')
   },
 
@@ -123,22 +121,23 @@ const domUpdates = {
     element.classList.add('hidden')
   },
 
+  resetTripRequestInputs() {
+    dateInput.value = '';
+    durationInput.value = '';
+    numberOfTravelersInput.value = '';
+    destinationInput.value = '';
+  },
+
   resolveTripRequestCompletedInputs(tripEstimate) {
     if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
       estimatedCostDisplay.innerText = `This trip is estimated to cost $${tripEstimate} (10% agent fee included)`;
-      dateInput.value = '';
-      durationInput.value = '';
-      numberOfTravelersInput.value = '';
-      destinationInput.value = '';
+      this.resetTripRequestInputs();
     }
   },
 
   tripRequestFeedback() {
     estimatedCostDisplay.innerText = 'Please fill out all fields to book your next adventure!'
-    dateInput.value = '';
-    durationInput.value = '';
-    numberOfTravelersInput.value = '';
-    destinationInput.value = '';
+    this.resetTripRequestInputs();
   },
 
   loginFeedback() {
