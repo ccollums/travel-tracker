@@ -62,7 +62,7 @@ Let the adventures begin!
 
 ![loginPage](https://media.giphy.com/media/RDeIlueoaW3adJKgSO/giphy.gif)   
 
-![fitlit_input_gif](https://user-images.githubusercontent.com/70819338/140833938-28c56a28-7e96-43b6-94d4-b38fe90a5787.gif)
+![mainDashboard](https://media.giphy.com/media/ble6VRtm51MkugHIwQ/giphy.gif)
 
 ## Wins
 - Having an appealing UI/UX 
