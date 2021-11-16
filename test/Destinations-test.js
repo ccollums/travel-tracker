@@ -7,29 +7,29 @@ describe('Destinations', () => {
 
   beforeEach(function() {
     const destinationsData = [{
-        id: 1,
-        destination: 'Lima, Peru',
-        estimatedLodgingCostPerDay: 70,
-        estimatedFlightCostPerPerson: 400,
-        image: 'imageURL1',
-        alt: 'alt text 1'
-      },
-      {
-        id: 2,
-        destination: 'Cancun, Mexico',
-        estimatedLodgingCostPerDay: 70,
-        estimatedFlightCostPerPerson: 400,
-        image: 'imageURL2',
-        alt: 'alt text 2'
-      },
-      {
-        id: 3,
-        destination: 'London, England',
-        estimatedLodgingCostPerDay: 70,
-        estimatedFlightCostPerPerson: 400,
-        image: 'imageURL3',
-        alt: "alt text 3"
-      }
+      id: 1,
+      destination: 'Lima, Peru',
+      estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400,
+      image: 'imageURL1',
+      alt: 'alt text 1'
+    },
+    {
+      id: 2,
+      destination: 'Cancun, Mexico',
+      estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400,
+      image: 'imageURL2',
+      alt: 'alt text 2'
+    },
+    {
+      id: 3,
+      destination: 'London, England',
+      estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400,
+      image: 'imageURL3',
+      alt: "alt text 3"
+    }
     ]
 
     destination = new Destinations(destinationsData)

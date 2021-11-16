@@ -8,7 +8,6 @@ import domUpdates from './domUpdates';
 const dayjs = require('dayjs');
 
 let user;
-let travelers;
 let trips;
 let destinations;
 

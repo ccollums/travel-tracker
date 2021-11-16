@@ -1,5 +1,4 @@
 const dayjs = require('dayjs')
-var isBetween = require('dayjs/plugin/isBetween')
 
 class User {
   constructor(user) {
