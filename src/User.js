@@ -7,7 +7,7 @@ class User {
     this.name = user.name;
     this.travelerType = user.travelerType;
     this.trips = user.trips;
-    this.destinations = user.destinations;
+    // this.destinations = user.destinations;
   }
 
   returnFirstName () {

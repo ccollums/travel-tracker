@@ -1,14 +1,11 @@
 import {getData, addData} from './api';
 import './css/base.scss';
-import './images/beach-image.jpg';
 import './images/travel-icon.svg';
-import Travelers from './Travelers';
 import User from './User';
 import Trips from './Trips';
 import Destinations from './Destinations';
 import domUpdates from './domUpdates';
 const dayjs = require('dayjs')
-
 
 let user;
 let travelers;
@@ -32,17 +29,15 @@ const retrieveData = (id) => {
 }
 
 const createInitialDashboard = (data) => {
-  travelers = new Travelers(data[0].travelers);
   trips = new Trips(data[1].trips);
   destinations = new Destinations(data[2].destinations);
   user = new User(data[3])
   domUpdates.addDestinationsToDropDown(destinations.retrieveDestinationNames())
   addIndividualUserInfo();
-  // domUpdates.glider();
 }
 
 const addIndividualUserInfo = () => {
-  user.destinations = destinations.retrieveDestinationNames()
+  // user.destinations = destinations.retrieveDestinationNames()
   user.trips = trips.retrieveTripsForUser(user.id)
   domUpdates.updateTotalSpent(user.retrieveTotalSpentOnTripsThisYear(destinations.data))
   domUpdates.displayUserGreeting(user);
@@ -65,12 +60,12 @@ const submitNewTripRequest = (event) => {
     status: 'pending',
     suggestedActivities: [],
   }
-  domUpdates.resolveTripRequestFilledOut(trips.retrieveTripCost(destinations.data, tripRequest).toFixed(2));
+  domUpdates.resolveTripRequestCompletedInputs(trips.retrieveTripCost(destinations.data, tripRequest).toFixed(2));
   addData(tripRequest, 'trips')
     .then(data => updatePendingTrips(data), 'data')
     .catch(err => console.log(err, "error"))
   } else {
-    domUpdates.resolveTripRequestNotFilledOut();
+    domUpdates.tripRequestFeedback();
   }
 }
 
@@ -79,9 +74,9 @@ const updatePendingTrips = (data) => {
   retrieveData(user.id)
 }
 
-const handleErrors = () => {
-
-}
+// const handleErrors = () => {
+//
+// }
 
 const uponLogIn = () => {
   const findUserNameId = userNameInput.value.split('traveler');
@@ -92,7 +87,6 @@ const uponLogIn = () => {
     return retrieveData(id);
   } else {
     domUpdates.loginFeedback();
-
   }
 }
 

@@ -123,13 +123,17 @@ const domUpdates = {
     element.classList.add('hidden')
   },
 
-  resolveTripRequestFilledOut(tripEstimate) {
+  resolveTripRequestCompletedInputs(tripEstimate) {
     if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
       estimatedCostDisplay.innerText = `This trip is estimated to cost $${tripEstimate} (10% agent fee included)`;
+      dateInput.value = '';
+      durationInput.value = '';
+      numberOfTravelersInput.value = '';
+      destinationInput.value = '';
     }
   },
 
-  resolveTripRequestNotFilledOut() {
+  tripRequestFeedback() {
     estimatedCostDisplay.innerText = 'Please fill out all fields to book your next adventure!'
     dateInput.value = '';
     durationInput.value = '';
@@ -137,16 +141,12 @@ const domUpdates = {
     destinationInput.value = '';
   },
 
-
-
   loginFeedback() {
     loginFeedback.innerText = `Username or password are incorrect`;
     userNameInput.value = '';
     passwordInput.value = '';
-
   },
 
 }
-
 
 export default domUpdates;
