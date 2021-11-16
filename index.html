@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet' href='src/css/base.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyager</title>
+  </head>
+  <body>
+    <main>
+      <section class="login-page" id=loginPage>
+        <section class="login-photo-left-side">
+          <section class="logo-title">
+            <img class="application-logo" src="./images/travel-icon.svg" alt="Globe icon with location pins" />
+            <h1 class="application-title">Voyager</h1>
+          </section>
+        </section>
+        <section class="login-right-side">
+          <h1>Sign In</h1>
+          <h2>Sign in to manage your adventures</h2>
+          <input class="user-name-input" id="userNameInput" type="text" placeholder="username" required />
+          <input class="password-input" id="passwordInput" type="password" placeholder="password" required />
+          <h2 class="login-feedback" id="loginFeedback"></h2>
+          <button class="login-button" id="loginButton">Sign In</button>
+        </section>
+      </section>
+      <section class="main-dashboard hidden" id='mainDashboard'>
+        <section class="nav-bar">
+          <section class="logo-title">
+            <img class="application-logo" src="./images/travel-icon.svg" alt="Globe icon with location pins" />
+            <h1 class="application-title">Voyager</h1>
+          </section>
+          <section class="money-spent-this-year">
+            <h1 class="total-spent">Total Spent in Past Year: </h1>
+            <h1 class="price" id="totalSpentInPastYear"></h1>
+          </section>
+        </section>
+        <section class="middle-image">
+          <section class="dashboard-image">
+            <h1 id="userGreeting"></h1>
+          </section>
+          <section class="label-input-boxes">
+            <h1>Where to?</h1>
+          </section>
+          <form class="new-trip-inputs">
+            <input class="date-input" id="dateInput" type="date" value="yyyy-MM-dd" placeholder="date" required />
+            <input class="duration-input" id="durationInput" type="number" min="1" placeholder="duration" required />
+            <input class="number-travelers-input" id="numberOfTravelersInput" type="number" min="1" placeholder="# of travelers" required />
+            <select class="destination-drop-down" name="dropDown" id="dropDownMenuDestinations" required>
+              <option value="" disabled selected hidden>destinations</option>
+            </select>
+          </form>
+          <section class="submit-button-section">
+            <button class="submit-button" id="submitButton">Away We Go</button>
+            <h1 class="estimated-trip-cost" id="estimatedCostOfTrip"></h1>
+          </section>
+        </section>
+        <section class="current-trip hidden" id="currentTrip">
+        </section>
+        <section class="trips">
+          <section class="pending-trips" id="pendingTrips">
+            <section>
+              <h1 class="trips-title">Pending Trips</h1>
+            </section>
+            <section class="user-pending-trips" id="userPendingTrips">
+            </section>
+          </section>
+          <section class="upcoming-trips" id="upcomingTrips">
+            <section>
+              <h1 class="trips-title">Upcoming Trips</h1>
+            </section>
+            <section class="user-upcoming-trips" id="userUpcomingTrips">
+            </section>
+          </section>
+          <section class="past-trips" id="pastTrips">
+            <section>
+              <h1 class="trips-title">Past Trips</h1>
+            </section>
+            <section class="user-past-trips" id="userPastTrips">
+            </section>
+          </section>
+        </section>
+      </section>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
