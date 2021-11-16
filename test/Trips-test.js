@@ -104,5 +104,4 @@ describe('Trips', () => {
   it('should return estimated cost of trip', function() {
     expect(trips.retrieveTripCost(destinationsData, trips.data[0])).to.equal(1056);
   })
-
 });

@@ -62,4 +62,8 @@ describe('Destinations', () => {
     expect(destination.retrieveDestinationNames(1)).to.deep.equal(['Cancun, Mexico', 'Lima, Peru', 'London, England'])
   })
 
+  it('should return the destination ID when given the destination name', function() {
+    expect(destination.retrieveDestinationID('Lima, Peru')).to.equal(1)
+  })
+
 });

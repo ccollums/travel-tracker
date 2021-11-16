@@ -4,10 +4,10 @@ class Destinations {
   }
 
   retrieveDestination(id) {
-      return this.data.find((destination) => {
-        return destination.id === id;
-      });
-    }
+    return this.data.find((destination) => {
+      return destination.id === id;
+    });
+  }
 
   retrieveDestinationNames() {
     const result = this.data.map((location) => {
