@@ -28,8 +28,8 @@ To verify that it is setup correctly, run `npm start` in your terminal. Go to `h
 
 ##Artists 
 
--Landscape shot of lit up walkway to a beach at a sunset by wbulls from NounProject.com
 -Travel by Vectplus from the Noun Project
+-View out to the Indian Ocean at dusk by wbulls from NounProject.com
 
 ### JavaScript
 
