@@ -1,11 +1,6 @@
-// import Glide from '@glidejs/glide'
-
 // user dashboard selectors
 const totalSpentInPastYear = document.getElementById('totalSpentInPastYear');
 const userGreeting = document.getElementById('userGreeting');
-// const dateInput = document.getElementById('dateInput');
-// const durationInput = document.getElementById('durationInput');
-// const numberOfTravelersInput = document.getElementById('numberOfTravelersInput');
 const destinationInput = document.getElementById('dropDownMenuDestinations');
 const estimatedCostDisplay = document.getElementById('estimatedCostOfTrip');
 const pendingTripsContainer = document.getElementById('userPendingTrips');
@@ -14,7 +9,11 @@ const pastTripsContainer = document.getElementById('userPastTrips');
 const currentTripContainer = document.getElementById('currentTrip');
 // login page selectors
 const loginPage = document.getElementById('loginPage');
-const mainDashboard = document.getElementById('mainDashboard')
+const mainDashboard = document.getElementById('mainDashboard');
+const loginFeedback = document.getElementById('loginFeedback');
+const userNameInput = document.getElementById('userNameInput');
+const passwordInput = document.getElementById('passwordInput');
+
 
 const domUpdates = {
 
@@ -45,7 +44,7 @@ const domUpdates = {
             <section class="trip-info">
               <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
-              <h2 class="trip-details">${trip.duration} nights</h2>
+              <h2 class="trip-details">${trip.duration} day stay</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -67,7 +66,7 @@ const domUpdates = {
             <section class="trip-info">
               <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
-              <h2 class="trip-details">${trip.duration} nights</h2>
+              <h2 class="trip-details">${trip.duration} day stay</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -89,7 +88,7 @@ const domUpdates = {
             <section class="trip-info">
               <h2 class="trip-details name">${destination.destination}</h2>
               <h2 class="trip-details">${trip.date}</h2>
-              <h2 class="trip-details">${trip.duration} nights</h2>
+              <h2 class="trip-details">${trip.duration} day stay</h2>
             </section>
             <img class="trip-image" src="${destination.image}" alt=""${destination.alt}"/>
           </section>`
@@ -102,17 +101,17 @@ const domUpdates = {
     currentTripContainer.innerHTML = '';
     if (user.retrieveCurrentTrips()) {
       this.show(currentTripContainer);
-    user.retrieveCurrentTrips().forEach((trip) => {
-      destinations.forEach((destination) => {
-        if (destination.id === trip.destinationID) {
-          currentTripContainer.innerHTML += `
+      user.retrieveCurrentTrips().forEach((trip) => {
+        destinations.forEach((destination) => {
+          if (destination.id === trip.destinationID) {
+            currentTripContainer.innerHTML += `
           <h1>I hope you are enjoying your current trip in ${destination.destination}</h1>
           <img class="trip-image" src="${destination.image}" alt="${destination.alt}"/>`
-        }
+          }
+        })
       })
-    })
-  }
-},
+    }
+  },
 
   show(element) {
     console.log(element)
@@ -124,20 +123,28 @@ const domUpdates = {
     element.classList.add('hidden')
   },
 
-  resolveTripRequest(tripEstimate) {
-  if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
-    estimatedCostDisplay.innerText = `This trip is estimated to cost $${tripEstimate} (10% agent fee included)`;
-  }
-  else {
-    estimatedCostDisplay.innerText = 'Please fill out all fields, to book your next adventure!'
-  }
-},
+  resolveTripRequestFilledOut(tripEstimate) {
+    if (dateInput.value && durationInput.value && numberOfTravelersInput.value && destinationInput.value) {
+      estimatedCostDisplay.innerText = `This trip is estimated to cost $${tripEstimate} (10% agent fee included)`;
+    }
+  },
 
-// glider() {
-//   new Glide(document.querySelector('.glide')) {
-//
-//   }
-// }
+  resolveTripRequestNotFilledOut() {
+    estimatedCostDisplay.innerText = 'Please fill out all fields to book your next adventure!'
+    dateInput.value = '';
+    durationInput.value = '';
+    numberOfTravelersInput.value = '';
+    destinationInput.value = '';
+  },
+
+
+
+  loginFeedback() {
+    loginFeedback.innerText = `Username or password are incorrect`;
+    userNameInput.value = '';
+    passwordInput.value = '';
+
+  },
 
 }
 
