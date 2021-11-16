@@ -24,7 +24,7 @@ Let the adventures begin!
 - [Carly Collums](https://github.com/ccollums)
 
 ## Deployed Site 
-[Here](https://ccollums.github.io/travel-tracker/)
+- [Here](https://ccollums.github.io/travel-tracker/)
 
 ## Technologies
 -  HTML
