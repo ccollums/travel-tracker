@@ -39,13 +39,13 @@ Let the adventures begin!
 - Travel by Vectplus from the Noun Project (Globe Travel Icon)
 
 ## Installation
-**To navigate the website live, a server download is required.**
+# To navigate the website live, a server download is required.**
   1. Download the necessary server and API [here](https://github.com/turingschool-examples/travel-tracker-api)
   2. Clone this repo down to your local machine 
   3. Cd into the `server` directory (travel-tracker-api)
   4. In the command line, run `npm install`
   5. In the command line, run `npm start`
-**Then clone down this repository.**
+# Then clone down this repository.
   1. In your command line, `cd` into your local directory and clone down this repository -<br>
       `git clone https://github.com/ccollums/travel-tracker`
   2. Cd into the repo 
@@ -59,10 +59,15 @@ Let the adventures begin!
   3. For example: `traveler34` and `travel`
 
 ## Illustrations
+# Login Page
 
 ![loginPage](https://media.giphy.com/media/RDeIlueoaW3adJKgSO/giphy.gif)   
 
+# Trips of Page
+
 ![mainDashboard](https://media.giphy.com/media/ble6VRtm51MkugHIwQ/giphy.gif)
+
+# Make a trip Request/It will move to pending trips
 
 ![tripRequest](https://media.giphy.com/media/E65fg4xW1Nx4a5HoG2/giphy.gif)
 
