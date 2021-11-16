@@ -5,21 +5,17 @@
   align-items: $align;
 }
 
-@mixin onePercentMargin {
-  margin: 1%;
-}
-
 @mixin buttons {
   cursor: pointer;
   border: none;
+    &:hover {
+      transition: .5s ease-in-out;
+      transform: scale(1.1);
+    }
 }
 
 @mixin backgroundImages ($url) {
   background-image: url($url);
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-@mixin standardBorderRadius {
-  border-radius: 14px;
 }

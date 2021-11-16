@@ -13,12 +13,12 @@ body {
 h1 {
   font-size: 200%;
   font-weight: 500;
-  @include onePercentMargin;
+  margin: $one-percent;
 }
 
 h2 {
-  @include onePercentMargin;
   color: $dark-grey;
+  margin: $one-percent;
 }
 
 h3 {
@@ -27,11 +27,7 @@ h3 {
 
 img {
   height: 17vh;
-  @include onePercentMargin;
-}
-
-.name {
-  font-weight: 700;
+  margin: $one-percent
 }
 
 .main-dashboard {
@@ -46,42 +42,42 @@ img {
 
 .middle-image {
   @include flexBox(column, flex-end, center);
-  height: 60vh;
   @include backgroundImages("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJvcGljYWwlMjBiZWFjaHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
+  height: 60vh;
 }
 
 .estimated-trip-cost {
-  font-weight: 700;
   font-size: 150%;
+  font-weight: 700;
   width: max-content;
 }
 
 .current-trip {
-  height: 20vh;
-  width: 100%;
-  margin: 1%;
+  @include flexBox(row, center, center);
   background-color: $light-tan;
-  @include flexBox(row, center, center)
+  height: 20vh;
+  width: $one-hundred-percent;
+  margin: $one-percent;
 }
 
 .trips {
-  @include flexBox(row, space-between)
+  @include flexBox(row, space-between);
 }
 
 .trips-title {
-  width: max-content;
   margin: 4%;
+  width: max-content;
 }
 
 .upcoming-trips,
 .pending-trips,
 .past-trips {
   @include flexBox(column, none, center);
-  @include standardBorderRadius;
-  width: 40vw;
+  border-radius: $border-radius;
   height: 60vh;
-  margin: 1.5%;
+  width: 40vw;
   overflow: scroll;
+  margin: 1.5%;
 }
 
 .user-pending-trips,
@@ -114,14 +110,14 @@ img {
 .duration-input,
 .number-travelers-input,
 .destination-drop-down {
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: 120%;
   height: 5vh;
   width: 20vw;
-  @include onePercentMargin;
-  padding: 1%;
-  font-size: 120%;
-  @include standardBorderRadius;
-  border: none;
-  cursor: pointer;
+  margin: $one-percent;
+  padding: $one-percent;
 }
 
 .destination-drop-down {
@@ -133,42 +129,43 @@ img {
 }
 
 .submit-button {
+  @include buttons;
+  background-color: $peach;
+  border-radius: $border-radius;
+  font-size: 120%;
+  font-weight: 500;
   height: 5vh;
   width: 20vw;
   margin: 2%;
-  @include buttons;
-  background-color: $peach;
-  font-size: 120%;
-  font-weight: 500;
-  @include standardBorderRadius;
 }
 
 .label-input-boxes,
 .dashboard-image {
+  @include flexBox(none, center, center);
   font-size: 150%;
   width: 100vw;
-  @include flexBox(none, center, center)
 }
 
 .dashboard-image {
-  font-size: 300%;
-  opacity: 30%;
   color: $dark-tan;
+  font-size: 300%;
+  font-weight: 700;
+  opacity: 30%;
 }
 
 .no-date-found {
   color: $black;
-  font-size: 100%;
+  font-size: $one-hundred-percent;
   margin-top: 15%;
   width: max-content;
 }
 
 .money-spent-this-year {
-  @include flexBox(none, center, center)
+  @include flexBox(none, center, center);
 }
 
 .total-spent {
-  font-size: 100%;
+  font-size: $one-hundred-percent;
   width: 15vw;
 }
 
@@ -180,15 +177,15 @@ img {
 .trip {
   @include flexBox(none, space-between, center);
   background-color: $primary-background;
-  @include standardBorderRadius;
+  border-radius: $border-radius;
+  margin: 4%;
   min-height: 20vh;
   width: 28vw;
-  margin: 4%;
 }
 
 .trip-details {
-  color: black;
   align-self: left;
+  color: black;
   margin: 15%;
 }
 
@@ -224,20 +221,20 @@ img {
 .user-name-input,
 .password-input,
 .login-button {
+  border-radius: $border-radius;
+  font-size: 120%;
   height: 5vh;
   width: 25vw;
   margin: 3%;
-  padding: 1%;
-  font-size: 120%;
-  @include standardBorderRadius;
+  padding: $one-percent;
 }
 
 .login-button {
-  height: 9vh;
-  width: 27vw;
+  @include buttons;
   background-color: $black;
   color: $primary-background;
-  @include buttons;
+  height: 9vh;
+  width: 27vw;
 }
 
 .user-name-input,
