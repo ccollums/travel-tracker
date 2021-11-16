@@ -38,7 +38,7 @@ Let the adventures begin!
 ## Artists 
 - Travel by Vectplus from the Noun Project (Globe Travel Icon)
 
-### Installation and Setup:
+## Installation
 **To navigate the website live, a server download is required.**
   1. Download the necessary server and API [here](https://github.com/turingschool-examples/travel-tracker-api)
   2. Clone this repo down to your local machine 
