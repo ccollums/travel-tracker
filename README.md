@@ -64,10 +64,6 @@ Let the adventures begin!
 ## Illustrations
 ### Login Page
 
-<p align = "center">
-<img src="https://media.giphy.com/media/RDeIlueoaW3adJKgSO/giphy.gif">
-</p>
-
 ![loginPage](https://media.giphy.com/media/RDeIlueoaW3adJKgSO/giphy.gif)   
 
 ### User Trips on Page 
