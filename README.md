@@ -4,7 +4,6 @@
 
 ## Table of Contents
 - [Abstract](#Abstract)
-- [Contributors](#Contributors)
 - [Technologies](#Technologies)
 - [Artists](#Artists)
 - [Installation](#Installation)
@@ -13,15 +12,13 @@
 - [Challenges](#Challenges)
 - [Future Additions](#Additions)
 - [Specs](#Specs)
+- [Author](#Author)
 
 
 ## Abstract
 Travel Tracker is an application that allows users to track their travels (past, present, and future). It also gives the user the ability to request a new trip for a travel agent to either approve or deny. A user will arrive on a login page, upon logging in they will be taken to their travel dashboard. This dashboard will show them how much money they have spent in the past year, their past approved trips, upcoming approved trips, and pending trips (trips that have not yet been approved by an agent). If the user is on a trip during the time of login, the current trip will be shown on the dashboard as well. 
 
 Let the adventures begin!
-
-## Contributors
-- [Carly Collums](https://github.com/ccollums)
 
 ## Deployed Site 
 - [Here](https://ccollums.github.io/travel-tracker/)
@@ -92,3 +89,14 @@ Let the adventures begin!
 ## Project Spec
 Project specs can be found here
 -  [Travel Tracker](https://frontend.turing.edu/projects/travel-tracker.html)
+
+## Author 
+
+<table>
+    <tr>
+        <td> Carly Collums <a href="https://github.com/ccollums">GH</td>
+    </tr>
+<td><img src="https://avatars.githubusercontent.com/u/86894344?v=4" alt="Carly Collums"
+ width="150" height="auto" /></td>
+</table>
+  
